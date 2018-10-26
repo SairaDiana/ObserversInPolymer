@@ -1,0 +1,51 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="component-one">
+    <template>
+      <h1 id="title">Usuarios<h1>
+      <input type="text" value="{{todo::input}}">
+      <br>
+      <button on-click="addTodo">Agregar</button>
+      <br>
+      <template is="dom-repeat" items="{{todos}}" as="todo" >
+        <h2>{{todo}}</h2>
+        <button on-click="destroy">Eliminar</button>
+        <br />
+      </template>
+    </template>
+
+  <script>
+    class ComponentOne extends Polymer.Element {
+
+      static get is() {return 'component-one';}
+      static get properties() {
+        return {
+          todo: {
+            type: String
+          },
+          todos: {
+            type: Array,
+            value: [],
+            notify: true,
+            reflectToAttribute: true,
+            observer: 'todosObserver'
+          }
+        }
+      }
+
+      todosObserver(t) {
+        console.log(t);
+      }
+
+      addTodo(e) {
+        this.push('todos', this.todo);
+        this.set('todo', '');
+      }
+
+      destroy(e) {
+        this.splice('todos', e.model.index, 1);
+      }
+    }
+    window.customElements.define(ComponentOne.is, ComponentOne);
+  </script>
+</dom-module>
