@@ -25,19 +25,20 @@
           },
           todos: {
             type: Array,
-            value: [],
-            notify: true,
-            reflectToAttribute: true,
-            observer: 'todosObserver'
+            value: [{nombre: 'Saira', Apellido: 'Carranza'}],
+            //notify: true,
+            //reflectToAttribute: true,
+            //observer: 'todosObserver'
           }
         }
       }
 
-      todosObserver(t) {
-        console.log(t);
-      }
+      //todosObserver(t) {
+        //console.log(t);
+      //}
 
       addTodo(e) {
+        console.log('Estos son los valores del arreglo', this.todos);
         this.push('todos', this.todo);
         this.set('todo', '');
       }
