@@ -25,20 +25,35 @@
           },
           todos: {
             type: Array,
+<<<<<<< HEAD
             value: [{nombre: 'Saira', Apellido: 'Carranza'}],
             //notify: true,
             //reflectToAttribute: true,
             //observer: 'todosObserver'
+=======
+            value: [],
+            notify: true,
+            reflectToAttribute: true,
+            observer: 'todosObserver'
+>>>>>>> 07164994d4b1f120245dea6f15a1ffdb4f1c2e6a
           }
         }
       }
 
+<<<<<<< HEAD
       //todosObserver(t) {
         //console.log(t);
       //}
 
       addTodo(e) {
         console.log('Estos son los valores del arreglo', this.todos);
+=======
+      todosObserver(t) {
+        console.log(t);
+      }
+
+      addTodo(e) {
+>>>>>>> 07164994d4b1f120245dea6f15a1ffdb4f1c2e6a
         this.push('todos', this.todo);
         this.set('todo', '');
       }
